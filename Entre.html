@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-globe-americas"></i> World Explorer</h1>
+            <p>Discover countries with futuristic elegance</p>
+        </div>
+
+        <div class="search-section">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Search for any country..." id="countrySearch">
+                <div class="suggestions" id="suggestions"></div>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <svg class="world-map" viewBox="0 0 900 500">
+                <path class="country" data-country="United States" d="M150 150 L300 140 L310 200 L280 220 L200 210 L150 180 Z"/>
+                <path class="country" data-country="Canada" d="M120 80 L350 70 L360 140 L300 140 L150 150 L120 120 Z"/>
+                <path class="country" data-country="Mexico" d="M150 220 L250 215 L260 260 L180 265 Z"/>
+                
+                <path class="country" data-country="Brazil" d="M250 280 L350 275 L360 380 L280 390 L270 320 Z"/>
+                <path class="country" data-country="Argentina" d="M250 380 L300 375 L310 450 L260 455 Z"/>
+                <path class="country" data-country="Chile" d="M240 380 L250 380 L260 455 L245 460 Z"/>
+                <path class="country" data-country="Peru" d="M220 320 L270 315 L275 360 L230 365 Z"/>
+                <path class="country" data-country="Colombia" d="M200 280 L250 275 L255 310 L210 315 Z"/>
+                
+                <path class="country" data-country="Russia" d="M500 80 L750 70 L760 180 L520 190 Z"/>
+                <path class="country" data-country="Germany" d="M450 160 L480 158 L485 185 L455 187 Z"/>
+                <path class="country" data-country="France" d="M420 170 L450 168 L455 195 L425 197 Z"/>
+                <path class="country" data-country="United Kingdom" d="M400 140 L430 138 L435 165 L405 167 Z"/>
+                <path class="country" data-country="Spain" d="M400 190 L440 188 L445 215 L405 217 Z"/>
+                <path class="country" data-country="Italy" d="M460 190 L485 188 L490 225 L465 227 Z"/>
+                <path class="country" data-country="Poland" d="M480 150 L510 148 L515 175 L485 177 Z"/>
+                <path class="country" data-country="Ukraine" d="M510 160 L550 158 L555 185 L515 187 Z"/>
+                <path class="country" data-country="Turkey" d="M520 200 L570 198 L575 225 L525 227 Z"/>
+                
+                <path class="country" data-country="Egypt" d="M480 240 L520 238 L525 270 L485 272 Z"/>
+                <path class="country" data-country="Libya" d="M440 250 L480 248 L485 280 L445 282 Z"/>
+                <path class="country" data-country="Nigeria" d="M420 290 L460 288 L465 320 L425 322 Z"/>
+                <path class="country" data-country="South Africa" d="M480 380 L530 378 L535 420 L485 422 Z"/>
+                <path class="country" data-country="Kenya" d="M520 320 L550 318 L555 350 L525 352 Z"/>
+                <path class="country" data-country="Ethiopia" d="M540 300 L570 298 L575 330 L545 332 Z"/>
+                <path class="country" data-country="Morocco" d="M380 230 L420 228 L425 260 L385 262 Z"/>
+                <path class="country" data-country="Rwanda" d="M380 230 L420 228 L425 260 L385 262 Z"/>
+
+                
+                <path class="country" data-country="China" d="M650 150 L750 140 L760 220 L670 230 Z"/>
+                <path class="country" data-country="India" d="M600 220 L680 210 L690 290 L620 300 Z"/>
+                <path class="country" data-country="Japan" d="M780 180 L820 178 L825 220 L785 222 Z"/>
+                <path class="country" data-country="South Korea" d="M750 200 L775 198 L780 220 L755 222 Z"/>
+                <path class="country" data-country="Indonesia" d="M680 320 L750 315 L760 350 L690 355 Z"/>
+                <path class="country" data-country="Thailand" d="M650 280 L680 278 L685 310 L655 312 Z"/>
+                <path class="country" data-country="Vietnam" d="M680 260 L710 258 L715 300 L685 302 Z"/>
+                <path class="country" data-country="Iran" d="M550 200 L590 198 L595 240 L555 242 Z"/>
+                <path class="country" data-country="Saudi Arabia" d="M520 240 L570 238 L575 280 L525 282 Z"/>
+                
+                <path class="country" data-country="Australia" d="M700 380 L800 375 L810 430 L720 435 Z"/>
+                <path class="country" data-country="New Zealand" d="M820 420 L850 418 L855 450 L825 452 Z"/>
+            </svg>
+
+            <div class="country-info" id="countryInfo">
+                <h3 id="countryName">Country Name</h3>
+                <p>Selected and highlighted in neon green</p>
+                <button class="clear-button" onclick="clearSelection()">Clear Selection</button>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Futuristic Design</h3>
+                <p>Experience a sleek, space-age interface with neon accents and smooth animations</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-search-location"></i>
+                <h3>Smart Search</h3>
+                <p>Instant country search with intelligent suggestions and auto-complete</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-magic"></i>
+                <h3>Interactive Effects</h3>
+                <p>Stunning hover effects and neon glow animations for engaging exploration</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Responsive</h3>
+                <p>Perfectly optimized for all devices with smooth performance everywhere</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
